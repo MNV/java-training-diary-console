@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import ru.ylab.Console;
+import ru.ylab.utils.Console;
 
 import static org.junit.jupiter.api.Assertions.*;
 
