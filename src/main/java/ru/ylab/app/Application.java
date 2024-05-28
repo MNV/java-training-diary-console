@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 
 public class Application {
-    public static final DataSource dataSource = new DataSource();
+    public static DataSource dataSource = new DataSource();
     @Getter
     private static final UserSession userSession = new UserSession();
     @Getter

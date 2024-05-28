@@ -25,11 +25,24 @@ Admin users have additional privileges like viewing the audit log.
     git clone git@github.com:mnv/java-training-diary-console.git
     cd java-training-diary-console
    ```
-    
-2. Build the project.
-    
-3. Run the application.
-    
+
+2. Create environment variables for Docker and fill it as you need:
+   ```sh
+   cp .env.sample .env
+   ```
+
+3. Run the database container:
+   ```sh
+   docker compose up
+   ```
+
+4. Create schemas by running `ru/ylab/migrations/Main.java`;
+
+5. Apply migrations:
+   ```shell
+   liquibase update
+   ```
+
 ## Usage
 
 Follow the on-screen instructions to interact with the application. 

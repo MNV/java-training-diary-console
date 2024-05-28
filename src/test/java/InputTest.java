@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import ru.ylab.utils.Input;
 
 import java.io.ByteArrayInputStream;
@@ -13,7 +15,7 @@ import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class InputTest {
+class InputTest {
 
     private PrintStream originalOut;
 
@@ -30,17 +32,23 @@ public class InputTest {
         System.setIn(System.in);
     }
 
-    @Test
-    public void testIsEmptyString() {
-        assertTrue(Input.isEmptyString(null));
-        assertTrue(Input.isEmptyString(""));
-        assertTrue(Input.isEmptyString("   "));
-        assertFalse(Input.isEmptyString("   string  "));
-        assertFalse(Input.isEmptyString("string"));
+    @ParameterizedTest
+    @CsvSource({
+        "null, true",
+        "'', true",
+        "'   ', true",
+        "'   string  ', false",
+        "string, false"
+    })
+    void testIsEmptyString(String input, boolean expected) {
+        if ("null".equals(input)) {
+            input = null;
+        }
+        assertEquals(expected, Input.isEmptyString(input));
     }
 
     @Test
-    public void testInputNonEmptyString() {
+    void testInputNonEmptyString() {
         String input = "\n   \nvalid\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);
@@ -49,7 +57,7 @@ public class InputTest {
     }
 
     @Test
-    public void testInputBoolean() {
+    void testInputBoolean() {
         String input = "invalid\ntrue\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);
@@ -58,7 +66,7 @@ public class InputTest {
     }
 
     @Test
-    public void testInputPositiveInteger() {
+    void testInputPositiveInteger() {
         String input = "invalid\n-1\n101\n0\n50\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);
@@ -67,7 +75,7 @@ public class InputTest {
     }
 
     @Test
-    public void testInputDate() throws ParseException {
+    void testInputDate() throws ParseException {
         String input = "invalid\n31.02.2020\n15.05.2024\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);

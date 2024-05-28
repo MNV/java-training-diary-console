@@ -130,8 +130,7 @@ public class TrainingTypeRepository implements BaseRepository<TrainingType, Trai
             statement.setString(1, trainingTypeName);
 
             try (ResultSet resultSet = statement.executeQuery()) {
-                boolean result = resultSet.next();
-                return result;
+                return resultSet.next();
             }
         } catch (SQLException e) {
             e.printStackTrace();
