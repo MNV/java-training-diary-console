@@ -1,4 +1,4 @@
-package ru.ylab;
+package ru.ylab.utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

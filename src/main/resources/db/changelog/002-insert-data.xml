@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="002-insert-data-training-types" author="mnv">
+        <insert tableName="training_types">
+            <column name="name" value="Swimming"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Running"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Strength"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Stretching"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Balance"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Powerlifting"/>
+        </insert>
+        <insert tableName="training_types">
+            <column name="name" value="Cycling"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

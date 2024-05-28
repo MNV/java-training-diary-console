@@ -1,26 +1,26 @@
 import org.junit.jupiter.api.Test;
-import ru.ylab.Console;
+import ru.ylab.utils.Console;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ConsoleTest {
+class ConsoleTest {
 
     @Test
-    public void testWarning() {
+    void testWarning() {
         String input = "Warning message.";
         String expected = "\u001B[33mWarning message.\u001B[0m";
         assertEquals(expected, Console.warning(input));
     }
 
     @Test
-    public void testSuccess() {
+    void testSuccess() {
         String input = "Success message.";
         String expected = "\u001B[32mSuccess message.\u001B[0m";
         assertEquals(expected, Console.success(input));
     }
 
     @Test
-    public void testCreateTable() {
+    void testCreateTable() {
         String[] headers = {"Column1", "Column2", "Column3"};
         String[][] data = {
             {"Value11", "Value12", "Value13"},
@@ -42,7 +42,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testCreateTableLongHeader() {
+    void testCreateTableLongHeader() {
         String[] headers = {"Short header", "Long and descriptive header"};
         String[][] data = {
             {"A", "Data"},
@@ -62,7 +62,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testCreateTableLongData() {
+    void testCreateTableLongData() {
         String[] headers = {"Short header", "Short header 2"};
         String[][] data = {
             {"A", "Data"},
@@ -82,7 +82,7 @@ public class ConsoleTest {
     }
 
     @Test
-    public void testCreateTableEmptyData() {
+    void testCreateTableEmptyData() {
         String[] headers = {"Column1", "Column2"};
         String[][] data = {};
 

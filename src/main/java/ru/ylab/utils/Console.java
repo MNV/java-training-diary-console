@@ -1,4 +1,4 @@
-package ru.ylab;
+package ru.ylab.utils;
 
 /**
  * Console output processing functions.
